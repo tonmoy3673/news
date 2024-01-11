@@ -11,7 +11,7 @@ const Header = () => {
       <p>
         <small>{moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}</small>
       </p>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="d-flex justify-content-center align-items-center bg-light rounded-2">
         <Button variant="danger">Latest</Button>
         <Marquee className="mt-3" speed={70}>
           <p className="me-4">
