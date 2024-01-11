@@ -1,7 +1,9 @@
-import { Button } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 
 const RightNav = () => {
   return (
@@ -23,8 +25,21 @@ const RightNav = () => {
       </div>
 
       {/* =============== find us button ============= */}
-      <div className="py-3">
+      <div className="py-5 mb-2">
         <h5 className="text-center text-secondary">Find US On</h5>
+        <ListGroup className="text-center">
+          <ListGroup.Item style={{ cursor: "pointer" }}>
+            <FaFacebookF className="me-2" /> Facebook
+          </ListGroup.Item>
+          <ListGroup.Item style={{ cursor: "pointer" }}>
+            <FaTwitter className="me-2" />
+            Twitter
+          </ListGroup.Item>
+          <ListGroup.Item style={{ cursor: "pointer" }}>
+            <FaInstagram className="me-2" />
+            Instagram
+          </ListGroup.Item>
+        </ListGroup>
       </div>
     </div>
   );
