@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 
 const RightNav = () => {
   return (
@@ -15,10 +16,15 @@ const RightNav = () => {
         </div>
         <div>
           <Button variant="outline-success" className="w-50">
-            <FaFacebookF className="me-2" />
-            Facebook
+            <FaGithub className="me-2" />
+            GitHub
           </Button>
         </div>
+      </div>
+
+      {/* =============== find us button ============= */}
+      <div className="py-3">
+        <h5 className="text-center text-secondary">Find US On</h5>
       </div>
     </div>
   );
