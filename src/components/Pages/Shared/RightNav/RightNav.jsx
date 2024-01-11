@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const RightNav = () => {
   return (
@@ -29,15 +30,33 @@ const RightNav = () => {
         <h5 className="text-center text-secondary">Find US On</h5>
         <ListGroup className="text-center">
           <ListGroup.Item style={{ cursor: "pointer" }}>
-            <FaFacebookF className="me-2" /> Facebook
+            <Link
+              to="https://facebook.com/"
+              target="_blank"
+              style={{ cursor: "pointer", textDecoration: "none" }}
+            >
+              <FaFacebookF className="me-2" /> Facebook
+            </Link>
           </ListGroup.Item>
           <ListGroup.Item style={{ cursor: "pointer" }}>
-            <FaTwitter className="me-2" />
-            Twitter
+            <Link
+              style={{ cursor: "pointer", textDecoration: "none" }}
+              to="https://twitter.com/"
+              target="_blank"
+            >
+              <FaTwitter className="me-2" />
+              Twitter
+            </Link>
           </ListGroup.Item>
-          <ListGroup.Item style={{ cursor: "pointer" }}>
-            <FaInstagram className="me-2" />
-            Instagram
+          <ListGroup.Item>
+            <Link
+              style={{ cursor: "pointer", textDecoration: "none" }}
+              to="https://www.instagram.com/"
+              target="_blank"
+            >
+              <FaInstagram className="me-2" />
+              Instagram
+            </Link>
           </ListGroup.Item>
         </ListGroup>
       </div>
