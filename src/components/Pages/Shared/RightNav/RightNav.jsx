@@ -6,6 +6,7 @@ import { FaTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import QZone from "../QZone/QZone";
+import bg from "../../../../assets/bg1.png";
 
 const RightNav = () => {
   return (
@@ -64,6 +65,32 @@ const RightNav = () => {
 
       {/* ====================== Q Zone =========================== */}
       <QZone />
+      <div
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          borderRadius: "5px",
+          paddingTop: "20px",
+          marginTop: "10px",
+        }}
+      >
+        <h4 className="text-center py-4">
+          Create an <br />
+          Amazing <br />
+          Newspaper
+        </h4>
+        <p className="py-2 mb-3 px-3 text-center">
+          Discover thousands of options, easy to customize layouts,one-click to
+          import demo and much more.
+        </p>
+        <div className="py-4 text-center">
+          <Link to="https://www.prothomalo.com/" target="_blank">
+            <Button variant="primary">Learn More</Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
