@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import QZone from "../QZone/QZone";
 
 const RightNav = () => {
   return (
@@ -60,6 +61,9 @@ const RightNav = () => {
           </ListGroup.Item>
         </ListGroup>
       </div>
+
+      {/* ====================== Q Zone =========================== */}
+      <QZone />
     </div>
   );
 };
