@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Categories from "../Categories/Categories";
 
 const LeftNav = () => {
   const [categories, setCategories] = useState([]);
@@ -12,6 +13,12 @@ const LeftNav = () => {
   return (
     <div>
       <h5>All Categories</h5>
+      <div>
+        {categories &&
+          categories.map((category) => (
+            <Categories key={category.id} category={category} />
+          ))}
+      </div>
     </div>
   );
 };
