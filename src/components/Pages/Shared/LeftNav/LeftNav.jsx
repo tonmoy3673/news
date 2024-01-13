@@ -12,7 +12,7 @@ const LeftNav = () => {
   console.log(categories);
   return (
     <div>
-      <h5>All Categories</h5>
+      <h5 className="text-secondary">All Categories</h5>
       <div>
         {categories &&
           categories.map((category) => (
