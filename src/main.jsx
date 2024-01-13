@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./components/Main/Main.jsx";
 import Home from "./components/Pages/Home/Home/Home.jsx";
+import Category from "./components/Pages/Shared/Categories/Category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/category/:id",
+        element: <Category />,
       },
     ],
   },

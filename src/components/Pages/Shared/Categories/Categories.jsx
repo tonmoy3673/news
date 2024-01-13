@@ -5,7 +5,7 @@ const Categories = (category) => {
   return (
     <div className="py-1">
       <Link
-        to={`/categories/${id}`}
+        to={`/category/${id}`}
         className="text-primary text-decoration-none"
       >
         {name}
