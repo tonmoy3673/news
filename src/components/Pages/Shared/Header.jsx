@@ -3,8 +3,13 @@ import logo from "../../../assets/logo.png";
 import moment from "moment";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+import { FaUser } from "react-icons/fa6";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="text-center py-3 container">
       <img src={logo} alt="logo" className="py-2 img-fluid" />
@@ -58,9 +63,24 @@ const Header = () => {
                 </Nav.Link>
               </Nav>
               <Nav className="d-flex justify-content-center align-items-center">
-                <Nav.Link href="#deets">Profile</Nav.Link>
+                {user && (
+                  <Nav.Link href="#deets">
+                    {" "}
+                    <FaUser style={{ fontSize: "1.2rem" }} />{" "}
+                    {user?.displayName}{" "}
+                  </Nav.Link>
+                )}
                 <Nav.Link eventKey={2} href="#memes">
-                  <Button variant="primary">Login</Button>
+                  {user ? (
+                    <Button variant="primary">Logout</Button>
+                  ) : (
+                    <Link>
+                      <Button variant="primary" className="me-2">
+                        Login
+                      </Button>
+                      <Button variant="outline-primary">Register</Button>
+                    </Link>
+                  )}
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
