@@ -7,12 +7,19 @@ import Main from "./components/Main/Main.jsx";
 import Category from "./components/Pages/Shared/Categories/Category.jsx";
 import NewsLayout from "./components/Main/NewsLayout.jsx";
 import NewsCard from "./components/Pages/News/NewsCard.jsx";
+import AuthProvider from "./components/Context/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
     children: [
+      {
+        path: "/",
+        element: <Category />,
+        loader: () => fetch("http://localhost:5000/news"),
+      },
+
       {
         path: "/home",
         element: <Category />,
@@ -41,6 +48,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
