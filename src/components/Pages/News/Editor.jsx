@@ -13,7 +13,7 @@ const Editor = () => {
           <Card>
             <Card.Body>
               <Card.Img variant="top" src={ed1} />
-              <Card.Text>
+              <Card.Text className="pt-2">
                 The Most Stylish Wedding Guest Dresses For Spring.
               </Card.Text>
               <p className="text-center text-muted">
@@ -27,7 +27,9 @@ const Editor = () => {
           <Card>
             <Card.Body>
               <Card.Img variant="top" src={ed2} />
-              <Card.Text>This is the Most Effective News for world.</Card.Text>
+              <Card.Text className="pt-2">
+                This is the Most Effective News for world.
+              </Card.Text>
               <p className="text-center text-muted">
                 <FaCalendar className="me-2" />
                 <small>14 Jan 2024</small>
