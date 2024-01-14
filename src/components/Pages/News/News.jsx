@@ -4,6 +4,9 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { FaShareNodes } from "react-icons/fa6";
 import moment from "moment";
 import { FaRegEye } from "react-icons/fa6";
+import Rating from "react-rating";
+import { FaRegStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
 
 const News = (news) => {
   const { details, image_url, title, _id, author, rating, total_view } =
@@ -51,7 +54,14 @@ const News = (news) => {
         </Card.Body>
         <Card.Footer className="text-muted">
           <div className="d-flex justify-content-between">
-            <p>{rating?.number}</p>
+            <Rating
+              readonly
+              placeholderRating={rating?.number}
+              emptySymbol={<FaRegStar className="icon" />}
+              placeholderSymbol={<FaStar className="icon text-warning" />}
+              fullSymbol={<FaStar className="icon" />}
+            />
+
             <p>
               <FaRegEye className="me-2" />
               {total_view}{" "}
