@@ -8,7 +8,6 @@ const NewsCard = () => {
   const { title, details, image_url, category_id } = newsInfo;
   return (
     <div className="py-5">
-      <h2>This is News Card</h2>
       <Card>
         <Card.Body>
           <Card.Title className="py-2">{title}</Card.Title>
