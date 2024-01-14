@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Categories from "../Categories/Categories";
+import Slider from "../Slider/Slider";
 
 const LeftNav = () => {
   const [categories, setCategories] = useState([]);
@@ -18,6 +19,9 @@ const LeftNav = () => {
           categories.map((category) => (
             <Categories key={category.id} category={category} />
           ))}
+      </div>
+      <div className="py-5">
+        <Slider />
       </div>
     </div>
   );
