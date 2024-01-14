@@ -4,10 +4,10 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./components/Main/Main.jsx";
-
 import Category from "./components/Pages/Shared/Categories/Category.jsx";
 import NewsLayout from "./components/Main/NewsLayout.jsx";
 import News from "./components/Pages/News/News.jsx";
+import Home from "./components/Pages/Home/Home/Home.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,12 +16,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home",
-        element: <Main />,
+        element: <Home />,
       },
       {
         path: "/category/:id",
         element: <Category />,
-        loader: () => fetch("http://localhost:5000/news"),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/categories/${params.id}`),
       },
     ],
   },

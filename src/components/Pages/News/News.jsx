@@ -1,11 +1,19 @@
-import { Card } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const News = (news) => {
-  const { details, image_url, title, _id } = news.news;
+  const { details, image_url, title, _id, author } = news.news;
   return (
     <div className="py-2">
       <Card>
+        <Card.Header>
+          <Image
+            style={{ height: "40px" }}
+            src={author.img}
+            className="img-fluid"
+            roundedCircle
+          ></Image>
+        </Card.Header>
         <Card.Body>
           <Card.Title className="py-1">{title}</Card.Title>
           <Card.Img variant="top" src={image_url} />
@@ -22,6 +30,7 @@ const News = (news) => {
             )}
           </Card.Text>
         </Card.Body>
+        <Card.Footer className="text-muted">2 Days Ago</Card.Footer>
       </Card>
     </div>
   );

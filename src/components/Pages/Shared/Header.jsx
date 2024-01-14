@@ -2,6 +2,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../../../assets/logo.png";
 import moment from "moment";
 import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -44,7 +45,10 @@ const Header = () => {
             <Navbar.Collapse id="responsive-navbar-nav ">
               <Nav className="mx-auto">
                 <Nav.Link href="#features" className="text-primary">
-                  Home
+                  <Link to="/home" className="text-decoration-none">
+                    {" "}
+                    Home
+                  </Link>
                 </Nav.Link>
                 <Nav.Link href="#pricing" className="text-primary">
                   About
