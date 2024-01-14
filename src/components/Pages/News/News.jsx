@@ -1,11 +1,13 @@
-import moment from "moment/moment";
 import { Card, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaShareNodes } from "react-icons/fa6";
+import moment from "moment";
+import { FaRegEye } from "react-icons/fa6";
 
 const News = (news) => {
-  const { details, image_url, title, _id, author } = news.news;
+  const { details, image_url, title, _id, author, rating, total_view } =
+    news.news;
   return (
     <div className="py-2">
       <Card>
@@ -47,7 +49,15 @@ const News = (news) => {
             )}
           </Card.Text>
         </Card.Body>
-        <Card.Footer className="text-muted">2 Days Ago</Card.Footer>
+        <Card.Footer className="text-muted">
+          <div className="d-flex justify-content-between">
+            <p>{rating?.number}</p>
+            <p>
+              <FaRegEye className="me-2" />
+              {total_view}{" "}
+            </p>
+          </div>
+        </Card.Footer>
       </Card>
     </div>
   );
