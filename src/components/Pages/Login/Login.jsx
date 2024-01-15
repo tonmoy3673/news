@@ -37,6 +37,8 @@ const Login = () => {
         <Form.Text className="text-muted">
           Do not have an account? Please <Link to="/register">Register</Link>
         </Form.Text>
+        <Form.Text className="text-success"></Form.Text>
+        <Form.Text className="text-danger"></Form.Text>
       </Form>
     </Container>
   );
