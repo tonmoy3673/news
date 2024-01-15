@@ -33,7 +33,7 @@ const Slider = () => {
             </p>
           </Card.Body>
         </Card>
-        <Card>
+        <Card className="mb-3">
           <Card.Body>
             <Card.Img variant="top" src={bg2} />
             <Card.Text className="pt-2">

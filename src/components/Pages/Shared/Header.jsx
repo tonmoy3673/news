@@ -49,12 +49,14 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav ">
               <Nav className="mx-auto">
-                <Nav.Link href="#features" className="text-primary">
-                  <Link to="/home" className="text-decoration-none">
-                    {" "}
-                    Home
-                  </Link>
-                </Nav.Link>
+                <Link
+                  to="/home"
+                  className="text-decoration-none mt-2 text-primary"
+                >
+                  {" "}
+                  Home
+                </Link>
+
                 <Nav.Link href="#pricing" className="text-primary">
                   About
                 </Nav.Link>
@@ -70,18 +72,21 @@ const Header = () => {
                     {user?.displayName}{" "}
                   </Nav.Link>
                 )}
-                <Nav.Link eventKey={2} href="#memes">
-                  {user ? (
-                    <Button variant="primary">Logout</Button>
-                  ) : (
-                    <Link>
+
+                {user ? (
+                  <Button variant="primary">Logout</Button>
+                ) : (
+                  <>
+                    <Link to="/login">
                       <Button variant="primary" className="me-2">
                         Login
                       </Button>
+                    </Link>
+                    <Link to="/register">
                       <Button variant="outline-primary">Register</Button>
                     </Link>
-                  )}
-                </Nav.Link>
+                  </>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>

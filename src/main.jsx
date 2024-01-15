@@ -8,6 +8,8 @@ import Category from "./components/Pages/Shared/Categories/Category.jsx";
 import NewsLayout from "./components/Main/NewsLayout.jsx";
 import NewsCard from "./components/Pages/News/NewsCard.jsx";
 import AuthProvider from "./components/Context/AuthProvider.jsx";
+import Login from "./components/Pages/Login/Login.jsx";
+import Register from "./components/Pages/Login/Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Category />,
         loader: () => fetch("http://localhost:5000/news"),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/category/:id",
