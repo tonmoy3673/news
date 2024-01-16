@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleForm = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <Container>
       <h5 className="text-center py-2 mb-2 text-secondary">
