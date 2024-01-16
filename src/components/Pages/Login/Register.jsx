@@ -8,6 +8,20 @@ const Register = () => {
 
   const handleForm = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    createUser(email, password, name, photo)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        const errorText = error.message;
+        console.log(errorText);
+      });
   };
 
   return (
@@ -16,7 +30,7 @@ const Register = () => {
         Please Register here{" "}
       </h5>
 
-      <Form className="mx-auto w-75">
+      <Form onSubmit={handleForm} className="mx-auto w-75">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your Name</Form.Label>
           <Form.Control
@@ -28,12 +42,7 @@ const Register = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Photo URL </Form.Label>
-          <Form.Control
-            type="text"
-            name="photo"
-            placeholder="Photo URL"
-            required
-          />
+          <Form.Control type="text" name="photo" placeholder="Photo URL" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
