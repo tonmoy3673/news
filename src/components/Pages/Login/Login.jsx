@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const handleLogin = (event) => {
+    event.preventDefault();
+  };
   return (
     <Container>
       <h5 className="text-center py-2 mb-2 text-secondary">
