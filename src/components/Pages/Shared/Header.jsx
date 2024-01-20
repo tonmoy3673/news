@@ -8,7 +8,15 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { FaUser } from "react-icons/fa6";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   console.log(user);
   return (
     <div className="text-center py-3 container">
@@ -74,7 +82,9 @@ const Header = () => {
                 )}
 
                 {user ? (
-                  <Button variant="primary">Logout</Button>
+                  <Button onSubmit={handleLogOut} variant="primary">
+                    Logout
+                  </Button>
                 ) : (
                   <>
                     <Link to="/login">
