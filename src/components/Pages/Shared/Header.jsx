@@ -14,9 +14,11 @@ const Header = () => {
     logOut()
       .then()
       .catch((error) => {
-        console.log(error.message);
+        const text = error.message;
+        console.log(text);
       });
   };
+  console.log(handleLogOut);
   console.log(user);
   return (
     <div className="text-center py-3 container">
@@ -82,7 +84,7 @@ const Header = () => {
                 )}
 
                 {user ? (
-                  <Button onSubmit={handleLogOut} variant="primary">
+                  <Button onClick={handleLogOut} variant="primary">
                     Logout
                   </Button>
                 ) : (

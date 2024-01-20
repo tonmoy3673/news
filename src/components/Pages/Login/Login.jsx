@@ -14,7 +14,7 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        form.event.reset();
+        form.reset();
         console.log(loggedUser);
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ const Login = () => {
       <h5 className="text-center py-2 mb-2 text-secondary">
         Please Login here{" "}
       </h5>
-      <Form onSubmit={handleLogin} className="mx-auto w-75">
+      <Form className="mx-auto w-75">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -50,7 +50,12 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="primary" type="submit" className="mb-2">
+        <Button
+          onClick={handleLogin}
+          variant="primary"
+          type="submit"
+          className="mb-2"
+        >
           Login
         </Button>
         <br />
@@ -58,7 +63,8 @@ const Login = () => {
           Do not have an account? Please <Link to="/register">Register</Link>
         </Form.Text>
         <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger">{error && error}</Form.Text>
+        <br />
+        <Form.Text className="text-danger py-2">{error && error}</Form.Text>
       </Form>
     </Container>
   );
