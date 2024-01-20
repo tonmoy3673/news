@@ -1,26 +1,28 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const name = form.name.value;
-    const photo = form.photo.value;
-    createUser(email, password, name, photo)
+    const displayName = form.name.value;
+    const photoURL = form.photo.value;
+    createUser(email, password, displayName, photoURL)
       .then((result) => {
         const createdUser = result.user;
+        form.reset();
         console.log(createdUser);
       })
       .catch((error) => {
         const errorText = error.message;
-        console.log(errorText);
+        setError(errorText);
       });
   };
 
@@ -74,7 +76,8 @@ const Register = () => {
           Already have an account? Please <Link to="/login">Login</Link>
         </Form.Text>
         <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
+        <br />
+        <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
     </Container>
   );
