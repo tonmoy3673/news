@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target.form;
@@ -16,6 +17,7 @@ const Login = () => {
         const loggedUser = result.user;
         form.reset();
         console.log(loggedUser);
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
