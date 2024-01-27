@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const handleAccepted = (event) => {
     setAccepted(event.target.checked);
@@ -22,6 +26,7 @@ const Register = () => {
       .then((result) => {
         const createdUser = result.user;
         form.reset();
+        navigate(from, { replace: true });
         console.log(createdUser);
       })
       .catch((error) => {
