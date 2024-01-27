@@ -9,6 +9,11 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
+  const [accepted, setAccepted] = useState(false);
+
+  const handleAccepted = (event) => {
+    setAccepted(event.target.checked);
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -53,9 +58,14 @@ const Login = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check
+            onClick={handleAccepted}
+            type="checkbox"
+            label="Check me out"
+          />
         </Form.Group>
         <Button
+          disabled={!accepted}
           onClick={handleLogin}
           variant="primary"
           type="submit"
