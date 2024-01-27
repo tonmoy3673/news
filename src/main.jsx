@@ -10,6 +10,7 @@ import NewsCard from "./components/Pages/News/NewsCard.jsx";
 import AuthProvider from "./components/Context/AuthProvider.jsx";
 import Login from "./components/Pages/Login/Login.jsx";
 import Register from "./components/Pages/Login/Register.jsx";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/news/:id",
-        element: <NewsCard />,
+        element: (
+          <PrivateRoute>
+            <NewsCard />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/news/${params.id}`),
       },
