@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
   const [accepted, setAccepted] = useState(false);
-
+  useTitle("Login");
   const handleAccepted = (event) => {
     setAccepted(event.target.checked);
   };

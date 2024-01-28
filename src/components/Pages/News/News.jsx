@@ -7,8 +7,10 @@ import { FaRegEye } from "react-icons/fa6";
 import Rating from "react-rating";
 import { FaRegStar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa6";
+import useTitle from "../../../hooks/useTitle";
 
 const News = (news) => {
+  useTitle("All News");
   const { details, image_url, title, _id, author, rating, total_view } =
     news.news;
   return (

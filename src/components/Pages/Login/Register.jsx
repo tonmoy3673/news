@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -9,7 +10,7 @@ const Register = () => {
   const [accepted, setAccepted] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-
+  useTitle("Register");
   const from = location?.state?.from?.pathname || "/";
 
   const handleAccepted = (event) => {
